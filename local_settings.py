@@ -33,10 +33,14 @@ TIME_ZONE = 'UTC'
 #LDAP_BASE_PASS = "readonly_account_password"
 #LDAP_USER_QUERY = "(username=%s)"  #For Active Directory use "(sAMAccountName=%s)"
 
-# If sqlite won't cut it, configure your real database here (don't forget to run manage.py syncdb!)
-#DATABASE_ENGINE = 'mysql' # or 'postgres'
-#DATABASE_NAME = 'graphite'
-#DATABASE_USER = 'graphite'
-#DATABASE_PASSWORD = 'graphite-is-awesome'
-#DATABASE_HOST = 'mysql.mycompany.com'
-#DATABASE_PORT = '3306'
+DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+            'NAME': 'dropspot_graphite',                      # Or path to database file if using sqlite3.
+            # The following settings are not used with sqlite3:
+            'USER': 'dropspot',
+            'PASSWORD': 'dropspizzy',
+            'HOST': '172.17.42.1',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+            'PORT': '5432',                      # Set to empty string for default.
+            }
+        }
